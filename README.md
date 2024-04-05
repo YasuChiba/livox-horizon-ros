@@ -1,0 +1,1 @@
+roslaunch livox_ros_driver livox_lidar_rviz.launch bd_list:="3WEDH7600113501"
