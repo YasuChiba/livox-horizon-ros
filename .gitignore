@@ -1,0 +1,6 @@
+
+workspace/build
+workspace/devel
+workspace/logs
+
+.catkin_tools
