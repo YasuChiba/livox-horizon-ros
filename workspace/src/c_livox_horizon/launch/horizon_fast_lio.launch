@@ -6,7 +6,7 @@
 	<arg name="multi_topic" default="0"/>
 	<arg name="data_src" default="0"/>
 	<arg name="publish_freq" default="10.0"/>
-	<arg name="rviz_enable" default="true"/>
+	<arg name="rviz" default="true"/>
 	<arg name="rosbag_enable" default="false"/>
 	<arg name="msg_frame_id" default="livox_frame"/>
 	<arg name="lidar_bag" default="true"/>
@@ -27,11 +27,6 @@
 	      type="livox_ros_driver_node" required="true"
 	      output="screen"/>
 
-	<group if="$(arg rviz_enable)">
-		<node name="rviz" pkg="rviz" type="rviz" respawn="true"
-				args="-d $(find livox_ros_driver)/config/display_lidar_points.rviz"/>
-    </group>
-
 	<group if="$(arg rosbag_enable)">
     	<node pkg="rosbag" type="record" name="record" output="screen"
           		args="-a"/>
@@ -43,5 +38,11 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true">
         <!-- <param name="tf_prefix" value="$(env ROS_HOSTNAME)"/> -->
     </node>
+
+
+	<!-- call mapping_horizon.launch in fast_lio package -->
+	<include file="$(find fast_lio)/launch/mapping_horizon.launch">
+		<arg name="rviz" value="$(arg rviz)"/>
+	</include>
 
 </launch>

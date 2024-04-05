@@ -41,8 +41,15 @@ RUN git clone https://github.com/Livox-SDK/livox_ros_driver.git ws_livox/src
 RUN /bin/bash -c 'source /opt/ros/melodic/setup.bash && cd ws_livox && catkin_make'
 
 
+RUN sudo apt install ros-melodic-cv-bridge ros-melodic-geodesy ros-melodic-nmea-msgs \
+                      ros-melodic-tf-conversions ros-melodic-libg2o ros-melodic-xacro ros-melodic-robot-state-publisher
+
+#RUN sudo add-apt-repository ppa:borglab/gtsam-release-4.0 && sudo apt update && \
+#            sudo apt install libgtsam-dev libgtsam-unstable-dev
+
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 RUN echo "source /home/user/ws_livox/devel/setup.bash" >> ~/.bashrc
+RUN echo "export XDG_RUNTIME_DIR=/tmp/runtime-user" >> ~/.bashrc
 
 #COPY ./ros_entrypoint.sh /
 #ENTRYPOINT ["/ros_entrypoint.sh"]

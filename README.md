@@ -1,1 +1,11 @@
-roslaunch livox_ros_driver livox_lidar_rviz.launch bd_list:="3WEDH7600113501"
+
+
+## launch
+
+```
+roslaunch fast_lio mapping_horizon.launch
+roslaunch c_livox_horizon horizon_rviz.launch
+
+
+roslaunch c_livox_horizon horizon_fast_lio.launch rviz:=true
+```
