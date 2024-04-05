@@ -42,7 +42,8 @@ RUN /bin/bash -c 'source /opt/ros/melodic/setup.bash && cd ws_livox && catkin_ma
 
 
 RUN sudo apt install ros-melodic-cv-bridge ros-melodic-geodesy ros-melodic-nmea-msgs \
-                      ros-melodic-tf-conversions ros-melodic-libg2o ros-melodic-xacro ros-melodic-robot-state-publisher
+                      ros-melodic-tf-conversions ros-melodic-libg2o ros-melodic-xacro ros-melodic-robot-state-publisher \
+                      ros-melodic-robot-localization
 
 #RUN sudo add-apt-repository ppa:borglab/gtsam-release-4.0 && sudo apt update && \
 #            sudo apt install libgtsam-dev libgtsam-unstable-dev
